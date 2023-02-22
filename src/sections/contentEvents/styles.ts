@@ -1,4 +1,5 @@
 import styled from "styled-components";
+import { MediaQueries } from "utils/mediaQueries";
 
 export const Wrapper = styled.section`
   display: flex;
@@ -16,7 +17,11 @@ export const Title = styled.h2`
 
 export const Content = styled.div`
   display: flex;
-  justify-content: space-between;
+  justify-content: center;
   gap: 20px;
   flex-wrap: wrap;
+
+  ${MediaQueries.tabletMiddle} {
+    justify-content: space-between;
+  }
 `;
