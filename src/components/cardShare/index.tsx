@@ -48,7 +48,7 @@ export const CardShare = ({ showValues, optionsListZone }: IProps) => {
         <S.ContentHeader>
           <S.Title>Bem vindo ao CARNAVRAU</S.Title>
           <S.Description>
-            Aqui você vai conhecer qual é o seu proximo bloquinho !!
+            Aqui você vai conhecer qual é o seu proximo evento no RJ !!
           </S.Description>
         </S.ContentHeader>
         <S.Divider />
