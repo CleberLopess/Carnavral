@@ -46,10 +46,6 @@ export const ContentInput = styled.div`
   display: flex;
   flex-direction: column;
   gap: 5px;
-
-  :nth-child(2) {
-    width: 80px;
-  }
 `;
 
 export const TitleInput = styled.h2`
@@ -84,6 +80,7 @@ export const Input = styled.input`
   border-right: 0;
   border-left: 0;
   transition: all 0.5s ease-in;
+  cursor: pointer;
 
   :focus {
     border-color: #c41efb;
@@ -102,3 +99,9 @@ export const Button = styled.button`
     background: #9e18cb;
   }
 `;
+
+export const Datalist = styled.datalist`
+  display: none;
+`;
+
+export const Option = styled.option``;

@@ -1,59 +1,44 @@
 import * as S from "./styles";
 import { FormProvider, useForm } from "react-hook-form";
+import { useState } from "react";
 
-export const CardShare = () => {
-  const list = [
-    "AC",
-    "AL",
-    "AP",
-    "AM",
-    "BA",
-    "CE",
-    "DF",
-    "ES",
-    "GO",
-    "MA",
-    "MT",
-    "MS",
-    "MG",
-    "PA",
-    "PB",
-    "PR",
-    "PE",
-    "PI",
-    "RJ",
-    "RN",
-    "RS",
-    "RO",
-    "RR",
-    "SC",
-    "SP",
-    "SE",
-    "TO",
-  ];
+interface Ilist {
+  title: string;
+  value: string;
+}
 
+interface IProps {
+  showValues(year: string, labelZone: string): void;
+
+  optionsListZone: Ilist[];
+}
+
+export const CardShare = ({ showValues, optionsListZone }: IProps) => {
   const methods = useForm({
     mode: "onChange",
     defaultValues: {
-      nameBloco: "",
+      zone: "",
       data: "",
     },
   });
+
   const { handleSubmit, register } = methods;
 
-  const onSubmit = handleSubmit((data) => {});
+  const onSubmit = handleSubmit((data) => {
+    showValues(data.data, data.zone);
+  });
 
   const optionsList = () => {
     return (
-      <datalist id="list">
-        {list.map((item) => {
+      <S.Datalist id="list">
+        {optionsListZone.map((item, index) => {
           return (
-            <option key={item} value={item}>
-              {item}
-            </option>
+            <S.Option key={index} value={item.title}>
+              {item.value}
+            </S.Option>
           );
         })}
-      </datalist>
+      </S.Datalist>
     );
   };
 
@@ -70,22 +55,23 @@ export const CardShare = () => {
         <FormProvider {...methods}>
           <S.Form onSubmit={onSubmit}>
             <S.ContentInput>
-              <S.TitleInput>Nome do Bloco</S.TitleInput>
-              <S.Input
-                {...register("nameBloco")}
-                type="text"
-                placeholder="Nome do Bloco"
-              ></S.Input>
-            </S.ContentInput>
-            <S.ContentInput>
               <S.TitleInput>Data</S.TitleInput>
               <S.Input
                 {...register("data")}
-                type="text"
+                type="date"
                 placeholder="Data"
-                list="list"
               ></S.Input>
             </S.ContentInput>
+            {/* <S.ContentInput>
+              <S.TitleInput>Zona do evento</S.TitleInput>
+              <S.Input
+                {...register("zone")}
+                type="text"
+                placeholder="Zona do evento"
+                list="list"
+                autoComplete="off"
+              ></S.Input>
+            </S.ContentInput> */}
             {optionsList()}
             <S.Button type="submit">Buscar</S.Button>
           </S.Form>

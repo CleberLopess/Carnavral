@@ -16,7 +16,7 @@ export const slice = createSlice({
   name: "selections",
   initialState: INITIAL_STATE,
   reducers: {
-    getSelectionsSuccess(state, { payload }: PayloadAction<IEvent[]>) {
+    setSelectionsSuccess(state, { payload }: PayloadAction<IEvent[]>) {
       return { ...state, isLoading: false, selections: payload };
     },
     clearSelections(state) {
@@ -25,7 +25,7 @@ export const slice = createSlice({
   },
 });
 
-export const { getSelectionsSuccess, clearSelections } = slice.actions;
+export const { setSelectionsSuccess, clearSelections } = slice.actions;
 
 export const selectSelections = (state: ISelectionsState) => state;
 

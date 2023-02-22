@@ -1,10 +1,10 @@
 import { createSlice, PayloadAction } from "@reduxjs/toolkit";
 
-import { IDataBaseEventsState, IEvents } from "../../interfaces/IEvents";
+import { IDataBaseEventsState, IEvents } from "../../interfaces/IShowEvents";
 
 const INITIAL_STATE: IDataBaseEventsState = {
   isLoading: false,
-  events: [
+  showEvents: [
     {
       centro: [{ hour: "", local: "", title: "" }],
       zonanorte: [{ hour: "", local: "", title: "" }],
@@ -18,11 +18,11 @@ const INITIAL_STATE: IDataBaseEventsState = {
 };
 
 export const slice = createSlice({
-  name: "events",
+  name: "showEvents",
   initialState: INITIAL_STATE,
   reducers: {
-    setEventsSuccess(state, { payload }: PayloadAction<IEvents[]>) {
-      return { ...state, isLoading: false, events: payload };
+    setShowEventsSuccess(state, { payload }: PayloadAction<IEvents[]>) {
+      return { ...state, isLoading: false, showEvents: payload };
     },
     clearEvents(state) {
       return { ...state, isLoading: false };
@@ -30,8 +30,8 @@ export const slice = createSlice({
   },
 });
 
-export const { setEventsSuccess, clearEvents } = slice.actions;
+export const { setShowEventsSuccess, clearEvents } = slice.actions;
 
-export const selectEvents = (state: IDataBaseEventsState) => state;
+export const selectShowEvents = (state: IDataBaseEventsState) => state;
 
-export const eventsReducer = slice.reducer;
+export const showEventsReducer = slice.reducer;

@@ -1,5 +1,5 @@
 export interface IDataBaseEventsState {
-  events: IEvents[];
+  showEvents: IEvents[];
   isLoading: boolean;
 }
 
