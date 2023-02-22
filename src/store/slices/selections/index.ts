@@ -17,8 +17,6 @@ export const slice = createSlice({
   initialState: INITIAL_STATE,
   reducers: {
     getSelectionsSuccess(state, { payload }: PayloadAction<IEvent[]>) {
-      console.log(payload);
-
       return { ...state, isLoading: false, selections: payload };
     },
     clearSelections(state) {

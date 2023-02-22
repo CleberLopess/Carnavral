@@ -16,7 +16,7 @@ export const CardEvent = ({ hour, local, title, img }: IProps) => {
       <S.DescriptionContent>
         <S.Title>{title}</S.Title>
         <S.Local>Local: {local}</S.Local>
-        <S.Hour>Horário: {hour}h</S.Hour>
+        <S.Hour>Horário: {hour}</S.Hour>
       </S.DescriptionContent>
     </S.Content>
   );

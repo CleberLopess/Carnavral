@@ -8,8 +8,6 @@ import { useSelector } from "store";
 export const ContentEvents = () => {
   const { selections, events } = useSelector((state) => state);
 
-  console.log(events);
-
   return (
     <S.Wrapper>
       <S.Title>{events.events[0].title}</S.Title>
