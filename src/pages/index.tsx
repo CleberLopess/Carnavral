@@ -1,17 +1,18 @@
 import { useEffect } from "react";
 
-import { ModalForm } from "sections/modalForm";
-import { Header } from "sections/header";
-import { HeroBanner } from "sections/heroBanner";
-import { ContentEvents } from "sections/contentEvents";
-import { Footer } from "sections/footer";
-
 import { currentDataBase } from "services/firebase";
 import { get, child } from "firebase/database";
 import { useDispatch } from "react-redux";
 import { setSelectionsSuccess } from "store/slices/selections";
 import { setEventsSuccess } from "store/slices/events";
 import { setModalForm } from "store/slices/modalForm";
+
+import { GiffInitial } from "sections/giffInitial";
+import { ModalForm } from "sections/modalForm";
+import { Header } from "sections/header";
+import { HeroBanner } from "sections/heroBanner";
+import { ContentEvents } from "sections/contentEvents";
+import { Footer } from "sections/footer";
 
 const Index = () => {
   const dispatch = useDispatch();
@@ -47,11 +48,14 @@ const Index = () => {
   }, [dispatch]);
 
   useEffect(() => {
-    dispatch(setModalForm(true));
+    setTimeout(() => {
+      dispatch(setModalForm(true));
+    }, 3000);
   }, [dispatch]);
 
   return (
     <>
+      <GiffInitial />
       <ModalForm />
       <Header />
       <HeroBanner />

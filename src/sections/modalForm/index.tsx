@@ -12,8 +12,6 @@ export const ModalForm = () => {
     dispatch(setModalForm(false));
   }, [dispatch]);
 
-  console.log(modalForm.showModal);
-
   if (!modalForm.showModal) {
     return <></>;
   }
