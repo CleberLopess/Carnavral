@@ -6,11 +6,12 @@ export const Wrapper = styled.div`
   position: fixed;
   z-index: 10;
   background-color: #ff38ea;
+  display: flex;
 `;
 
 export const Content = styled.img`
   display: flex;
-  width: 100%;
-  height: 100%;
+  width: fit-content;
+  height: fit-content;
   margin: auto;
 `;
