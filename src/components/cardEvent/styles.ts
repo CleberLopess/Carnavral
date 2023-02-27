@@ -12,6 +12,8 @@ export const Content = styled.div`
   width: 100%;
   height: 100%;
   max-width: 350px;
+
+  text-align: center;
 `;
 
 export const Image = styled.div`
@@ -28,6 +30,7 @@ export const DescriptionContent = styled.div`
   display: flex;
   flex-direction: column;
 
+  gap: 10px;
   justify-content: center;
   align-items: center;
 `;

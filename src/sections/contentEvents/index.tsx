@@ -19,15 +19,19 @@ export const ContentEvents = () => {
       (item: IEvents) => item.data === currentDate
     );
 
-    dispatch(setShowEventsSuccess(itemEvent));
+    if (!!itemEvent.length) {
+      dispatch(setShowEventsSuccess(itemEvent));
+    } else {
+      dispatch(setShowEventsSuccess(events.events));
+    }
   }, [currentDate, dispatch, events.events]);
 
   return (
     <S.Wrapper>
       {showEvents?.showEvents.map((item, index) => {
         return (
-          <>
-            <S.Title key={index}>{item.title}</S.Title>
+          <S.ContentSectionsEvents key={index}>
+            <S.Title>{item.title}</S.Title>
 
             {!!item?.centro && (
               <>
@@ -128,7 +132,7 @@ export const ContentEvents = () => {
                 </S.Content>
               </>
             )}
-          </>
+          </S.ContentSectionsEvents>
         );
       })}
     </S.Wrapper>

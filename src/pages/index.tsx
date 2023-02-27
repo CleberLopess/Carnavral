@@ -1,5 +1,6 @@
 import { useEffect } from "react";
 
+import { ModalForm } from "sections/modalForm";
 import { Header } from "sections/header";
 import { HeroBanner } from "sections/heroBanner";
 import { ContentEvents } from "sections/contentEvents";
@@ -10,6 +11,7 @@ import { get, child } from "firebase/database";
 import { useDispatch } from "react-redux";
 import { setSelectionsSuccess } from "store/slices/selections";
 import { setEventsSuccess } from "store/slices/events";
+import { setModalForm } from "store/slices/modalForm";
 
 const Index = () => {
   const dispatch = useDispatch();
@@ -44,8 +46,13 @@ const Index = () => {
       });
   }, [dispatch]);
 
+  useEffect(() => {
+    dispatch(setModalForm(true));
+  }, [dispatch]);
+
   return (
     <>
+      <ModalForm />
       <Header />
       <HeroBanner />
       <ContentEvents />

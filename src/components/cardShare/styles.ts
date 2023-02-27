@@ -80,12 +80,12 @@ export const Input = styled.input`
   border-top: 0;
   border-right: 0;
   border-left: 0;
-  transition: all 0.5s ease-in;
   cursor: pointer;
 
   :focus {
     border-color: #c41efb;
     outline: none;
+    transition: all 0.5s ease-in;
   }
 `;
 
@@ -94,10 +94,10 @@ export const Button = styled.button`
   border-radius: 10px;
   background-color: #c41efb;
   color: #fefefe;
-  transition: all 0.2s ease-in;
 
   :hover {
     background: #9e18cb;
+    transition: all 0.2s ease-in;
   }
 `;
 
